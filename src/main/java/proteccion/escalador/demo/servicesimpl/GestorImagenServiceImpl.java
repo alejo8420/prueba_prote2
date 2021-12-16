@@ -62,6 +62,7 @@ public class GestorImagenServiceImpl implements GestorImagenService {
         double xWidth = image.getWidth();
         double xLength = image.getHeight();
         double ratio = xWidth / xLength;
+        boolean tamanoMinimo = verificarTamano(xWidth, xLength);
 
  //Comprobamos el area de la imagen 
         if (xWidth * xLength > AREA_A4) {
@@ -98,5 +99,10 @@ public class GestorImagenServiceImpl implements GestorImagenService {
         g.dispose();
         return bufim;
     }
+    public boolean verificarTamano(double ancho, double alto) {
 
+        return ancho >=WITDH_TARGET||alto>=LENGHT_TARGET; 
+    }
 }
+
+
