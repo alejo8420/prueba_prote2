@@ -42,7 +42,7 @@ public class GestorImagenServiceImpl implements GestorImagenService {
 
     @Override
     public boolean saveImage(Image image) {
-
+        //se guarda la nueva imagen redimensionada
         System.out.println("Salvando Imagen ");
         
         try {
@@ -57,6 +57,7 @@ public class GestorImagenServiceImpl implements GestorImagenService {
 
     @Override
     public boolean procesarImagen() {
+        //Capturamos la imagen y validamos si es necesario redimensionarla
         System.out.println("Procesando Imagen");
         BufferedImage image = loadImage("Imagen.jpg");
         double xWidth = image.getWidth();
@@ -64,7 +65,7 @@ public class GestorImagenServiceImpl implements GestorImagenService {
         double ratio = xWidth / xLength;
         boolean tamanoMinimo = verificarTamano(xWidth, xLength);
 
- //Comprobamos el area de la imagen 
+        //Comprobamos el área de la imagen 
         if (xWidth * xLength > AREA_A4) {
             saveImage(redimensionar(image));
             return true;
@@ -78,6 +79,7 @@ public class GestorImagenServiceImpl implements GestorImagenService {
     }
 
     public BufferedImage redimensionar(BufferedImage bf) {
+        //Método para redimensionar la imagen sin perder relación/aspecto
         int ancho = bf.getWidth();
         int alto = bf.getHeight();     
         
@@ -99,6 +101,8 @@ public class GestorImagenServiceImpl implements GestorImagenService {
         g.dispose();
         return bufim;
     }
+    
+    //método para validar tamaño de la imagen en pruebas
     public boolean verificarTamano(double ancho, double alto) {
 
         return ancho >=WITDH_TARGET||alto>=LENGHT_TARGET; 

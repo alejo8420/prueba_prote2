@@ -15,7 +15,7 @@ class ProyectoEscaladorApplicationTests {
         assertEquals(true, gst.verificarTamano(15, 797));
     }
     
-        @Test
+    @Test
     void imageIsSmallerThanA4() {
         GestorImagenServiceImpl gst = new GestorImagenServiceImpl();
 

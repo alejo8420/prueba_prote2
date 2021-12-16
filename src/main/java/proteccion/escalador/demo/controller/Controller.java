@@ -18,7 +18,7 @@ public class Controller {
     @Autowired
     private GestorImagenService service;
 
-    private String resultadoExitoso = "Procesado correctamente la imagen quedo alojado en la ruta: " + "C:\\APACHE TOMCAT\\apache-tomcat-9.0.56\\bin";
+    private String resultadoExitoso = "Imagen procesada correctamente!!";
     private String resultadoFallido = "No es necesario reescalar la imagen";
 
     @GetMapping
