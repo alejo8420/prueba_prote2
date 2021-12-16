@@ -66,7 +66,9 @@ public class GestorImagenServiceImpl implements GestorImagenService {
         boolean tamanoMinimo = verificarTamano(xWidth, xLength);
 
         //Comprobamos el área de la imagen 
-        if (xWidth * xLength > AREA_A4) {
+        //if (xWidth * xLength > AREA_A4) {
+        
+        if (xWidth >= WITDH_TARGET || xLength>=LENGHT_TARGET) {
             saveImage(redimensionar(image));
             return true;
 
